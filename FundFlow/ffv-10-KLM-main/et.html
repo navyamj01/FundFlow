@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FundFlow - Expense Tracker</title>
+    <link rel="stylesheet" href="et.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo-section">
+                <img src="logo.png" alt="FundFlow" class="logo">
+                <h1 class="FundFlow">FundFlow</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="home.html">Home</a>
+                        <div class="saber">
+                            <div class="handle">
+                                <div class="dot"></div>
+                            </div>
+                            <div class="beam aqua"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="et.html" class="active">Expenses</a>
+                        <div class="saber">
+                            <div class="handle">
+                                <div class="dot"></div>
+                            </div>
+                            <div class="beam aqua"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="goals.html">Goals</a>
+                        <div class="saber">
+                            <div class="handle">
+                                <div class="dot"></div>
+                            </div>
+                            <div class="beam aqua"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                        <div class="saber">
+                            <div class="handle">
+                                <div class="dot"></div>
+                            </div>
+                            <div class="beam aqua"></div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Track Expenses Container First -->
+            <div class="track-expenses-container">
+                <h2>Track Your Expenses</h2>
+                
+                <!-- Search and Filter -->
+                <div class="search-filter">
+                    <div class="search-box">
+                        <input type="text" id="expense-search" placeholder="Search expenses...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    
+                    <div class="filters">
+                        <div class="date-inputs">
+                            <input type="date" id="date-from">
+                            <span>to</span>
+                            <input type="date" id="date-to">
+                        </div>
+                        <select id="category-filter">
+                            <option value="">All Categories</option>
+                            <option value="food">Food</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="movies">Movies</option>
+                            <option value="travel">Travel</option>
+                            <option value="bills">Bills</option>
+                        </select>
+                        <button id="apply-date-filter">Apply Filter</button>
+                        <button id="reset-filters" class="reset-btn">
+                            <i class="fas fa-undo"></i> Reset Filters
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Expense List -->
+                <div class="expense-list-section">
+                    <div class="expense-header">
+                        <h3>Recent Expenses</h3>
+                        <button id="add-expense" class="add-expense-btn">
+                            <i class="fas fa-plus"></i> Add New Expense
+                        </button>
+                    </div>
+                    <div id="expense-list"></div>
+                </div>
+            </div>
+
+            <!-- Utility Section at Bottom -->
+            <div class="utility-section">
+                <div class="utility-card">
+                    <h3>Currency Converter</h3>
+                    <div class="converter-container">
+                        <div class="converter-input">
+                            <div class="amount-input">
+                                <label>Amount</label>
+                                <input type="number" id="amount" value="1" min="0">
+                            </div>
+                            <div class="currency-select">
+                                <div class="from-currency">
+                                    <label>From</label>
+                                    <select id="fromCurrency">
+                                        <option value="INR">🇮🇳 INR</option>
+                                        <option value="USD" selected>🇺🇸 USD</option>
+                                        <option value="EUR">🇪🇺 EUR</option>
+                                        <option value="GBP">🇬🇧 GBP</option>
+                                        <option value="JPY">🇯🇵 JPY</option>
+                                        <option value="CNY">🇨🇳 CNY</option>
+                                    </select>
+                                </div>
+                                <button id="swapCurrency" class="swap-btn">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </button>
+                                <div class="to-currency">
+                                    <label>To</label>
+                                    <select id="toCurrency">
+                                        <option value="INR" selected>🇮🇳 INR</option>
+                                        <option value="USD">🇺🇸 USD</option>
+                                        <option value="EUR">🇪🇺 EUR</option>
+                                        <option value="GBP">🇬🇧 GBP</option>
+                                        <option value="JPY">🇯🇵 JPY</option>
+                                        <option value="CNY">🇨🇳 CNY</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="conversion-result">
+                            <div class="result-amount">
+                                <span id="convertedAmount">0.00</span>
+                            </div>
+                            <div class="exchange-rate">
+                                <span id="exchangeRate">1 USD = 82.50 INR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="utility-card">
+                    <h3>Expense Analytics</h3>
+                    <div class="analytics-container">
+                        <div class="chart-tabs">
+                            <button class="tab-btn active" data-chart="category">
+                                <i class="fas fa-chart-pie"></i>
+                                Category Split
+                            </button>
+                            <button class="tab-btn" data-chart="trend">
+                                <i class="fas fa-chart-line"></i>
+                                Monthly Trend
+                            </button>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <canvas id="expenseChart"></canvas>
+                        </div>
+                        
+                        <div class="analytics-stats">
+                            <div class="stat-box">
+                                <div class="stat-icon">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <div class="stat-details">
+                                    <span class="stat-label">Total Expenses</span>
+                                    <span class="stat-value" id="totalExpenses">₹0</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-box">
+                                <div class="stat-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="stat-details">
+                                    <span class="stat-label">Monthly Average</span>
+                                    <span class="stat-value" id="monthlyAverage">₹0</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-box">
+                                <div class="stat-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <div class="stat-details">
+                                    <span class="stat-label">Top Category</span>
+                                    <span class="stat-value" id="topCategory">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="codetheworld-io">
+                <a href="https://www.linkedin.com" style="--color: #0072b1"> 
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com" style="--color: #E1306C"> 
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/your-phone-number" style="--color: #25D366"> 
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://www.facebook.com" style="--color: #4267B2"> 
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 FundFlow. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div class="popup-overlay" id="expenseFormPopup">
+        <div class="popup-content">
+            <button class="close-popup">&times;</button>
+            <h3>Add New Expense</h3>
+            <form id="expense-form">
+                <div class="form-group">
+                    <label for="expense-name">Expense Name</label>
+                    <input type="text" id="expense-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="expense-amount">Amount (₹)</label>
+                    <input type="number" id="expense-amount" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="expense-date">Date</label>
+                    <input type="date" id="expense-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="expense-category">Category</label>
+                    <select id="expense-category" required>
+                        <option value="">Select Category</option>
+                        <option value="food">Food</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="movies">Movies</option>
+                        <option value="travel">Travel</option>
+                        <option value="bills">Bills</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="health">Health</option>
+                        <option value="education">Education</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="expense-tags">Tags (comma-separated)</label>
+                    <input type="text" id="expense-tags" placeholder="e.g., urgent, monthly, personal">
+                </div>
+                <button type="submit" class="submit-btn">Add Expense</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="deleteConfirmPopup">
+        <div class="popup-content">
+            <h3>Confirm Delete</h3>
+            <p>Enter password to delete this expense</p>
+            <div class="form-group">
+                <input type="password" id="delete-password" placeholder="Enter password">
+            </div>
+            <div class="popup-buttons">
+                <button id="confirmDelete" class="delete-btn">Delete</button>
+                <button id="cancelDelete" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="et.js"></script>
+</body>
+</html>

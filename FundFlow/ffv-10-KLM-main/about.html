@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About FundFlow</title>
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo-section">
+                <img src="logo.png" alt="FundFlow" class="logo">
+                <h1 class="FundFlow">FundFlow</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="home.html">Home</a>
+                        <div class="saber">
+                            <div class="handle">
+                                <div class="dot"></div>
+                            </div>
+                            <div class="beam aqua"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="et.html">Expenses</a>
+                        <div class="saber">
+                            <div class="handle">
+                                <div class="dot"></div>
+                            </div>
+                            <div class="beam aqua"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="goals.html">Goals</a>
+                        <div class="saber">
+                            <div class="handle">
+                                <div class="dot"></div>
+                            </div>
+                            <div class="beam aqua"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="about.html" class="active">About</a>
+                        <div class="saber">
+                            <div class="handle">
+                                <div class="dot"></div>
+                            </div>
+                            <div class="beam aqua"></div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="about-content">
+                <h2>About FundFlow</h2>
+                <p>FundFlow is your comprehensive expense tracking solution, crafted to simplify and elevate the way you manage your personal finances. With an intuitive design and robust features, FundFlow empowers you to keep track of your expenses, analyze spending patterns, and make confident financial decisions.</p>
+                <p>Founded in 2024, FundFlow was born out of a passion for financial literacy and a desire to empower individuals to make informed decisions about their money. Our team of dedicated professionals combines expertise in finance, technology, and user experience to deliver a top-notch expense tracking application.</p>
+                
+                <div class="team-section">
+                    <div class="team-member">
+                        <img src="Kavin.jpg" alt="Kavin">
+                        <h3>Kavin Thakur</h3>
+                        <p>Founder & CEO</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="Lakshya.png" alt="Lakshya">
+                        <h3>Lakshya</h3>
+                        <p>Lead Developer</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="Lakshya.png" alt="Navyam">
+                        <h3>Navyam</h3>
+                        <p>UX Designer</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="contact-section">
+                <h2>Contact Us</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info">
+                            <h3>Our Location</h3>
+                            <p>IT PARK SAHASTRADHARA ROAD, DEHRADUN<br>
+                               Aman Vihar, Danda Dhoran<br>
+                               Uttarakhand 248013</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="info">
+                            <h3>Phone</h3>
+                            <p>‪+91 87086 46364‬<br>
+                               +91 87080 33766</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info">
+                            <h3>Email</h3>
+                            <p>info@fundflow.com<br>
+                               support@fundflow.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="info">
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>
+                               Saturday: 10:00 AM - 2:00 PM<br>
+                               Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=it%20park%20dehradun&zoom=15&maptype=roadmap"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </main>
+
+        <section class="support-section">
+            <div class="support-buttons">
+                <div class="donate-container">
+                    <button id="donateBtn" class="glow-button green">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        Donate Us
+                    </button>
+                    <div id="donateModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-modal">&times;</span>
+                            <h2>Support FundFlow</h2>
+                            <div class="donation-content">
+                                <div class="preset-amounts">
+                                    <button class="amount-btn" data-amount="100">
+                                        <span class="amount">₹100</span>
+                                        <span class="label">Basic Support</span>
+                                    </button>
+                                    <button class="amount-btn" data-amount="500">
+                                        <span class="amount">₹500</span>
+                                        <span class="label">Premium Support</span>
+                                    </button>
+                                    <button class="amount-btn" data-amount="1000">
+                                        <span class="amount">₹1000</span>
+                                        <span class="label">Gold Support</span>
+                                    </button>
+                                </div>
+                                <div class="custom-amount">
+                                    <input type="number" id="customAmount" placeholder="Enter custom amount">
+                                    <button id="customDonateBtn" class="submit-rating">Donate Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="rateBtn" class="glow-button red">
+                    <i class="fas fa-star"></i>
+                    Rate Us
+                </button>
+                <button id="shareBtn" class="glow-button blue">
+                    <i class="fas fa-share-alt"></i>
+                    Share Us
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <div id="ratingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Rate Your Experience</h2>
+            <div class="stars">
+                <i class="fas fa-star" data-rating="1"></i>
+                <i class="fas fa-star" data-rating="2"></i>
+                <i class="fas fa-star" data-rating="3"></i>
+                <i class="fas fa-star" data-rating="4"></i>
+                <i class="fas fa-star" data-rating="5"></i>
+            </div>
+            <textarea id="ratingFeedback" placeholder="Tell us about your experience (optional)"></textarea>
+            <button id="submitRating" class="submit-rating">Submit Rating</button>
+        </div>
+    </div>
+
+    <div id="thankYouModal" class="modal">
+        <div class="modal-content receipt">
+            <span class="close-modal">&times;</span>
+            <div class="receipt-header">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h2>Thank You for Your Support!</h2>
+            </div>
+            <div class="receipt-details">
+                <div class="receipt-item">
+                    <span>Transaction ID:</span>
+                    <span id="transactionId"></span>
+                </div>
+                <div class="receipt-item">
+                    <span>Amount:</span>
+                    <span id="donationAmount"></span>
+                </div>
+                <div class="receipt-item">
+                    <span>Date:</span>
+                    <span id="donationDate"></span>
+                </div>
+            </div>
+            <button class="download-receipt">
+                <i class="fas fa-download"></i>
+                Download Receipt
+            </button>
+        </div>
+    </div>
+
+    <div id="shareModal" class="modal">
+        <div class="modal-content share-modal">
+            <span class="close-modal">&times;</span>
+            <h2>Share FundFlow</h2>
+            <p class="share-description">Help us grow by sharing FundFlow with your network!</p>
+            
+            <div class="share-preview">
+                <img src="logo.png" alt="FundFlow" class="share-preview-img">
+                <div class="share-preview-text">
+                    <h3>FundFlow - Smart Expense Tracking</h3>
+                    <p>Track expenses, set budgets, and achieve your financial goals with FundFlow! 💰✨</p>
+                </div>
+            </div>
+
+            <div class="share-options">
+                <button class="share-btn facebook" data-platform="facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>
+                        <strong>Facebook</strong>
+                        <small>Share with friends</small>
+                    </span>
+                </button>
+                
+                <button class="share-btn twitter" data-platform="twitter">
+                    <i class="fab fa-twitter"></i>
+                    <span>
+                        <strong>Twitter</strong>
+                        <small>Tweet to followers</small>
+                    </span>
+                </button>
+                
+                <button class="share-btn whatsapp" data-platform="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>
+                        <strong>WhatsApp</strong>
+                        <small>Share with contacts</small>
+                    </span>
+                </button>
+                
+                <button class="share-btn linkedin" data-platform="linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span>
+                        <strong>LinkedIn</strong>
+                        <small>Share professionally</small>
+                    </span>
+                </button>
+            </div>
+
+            <div class="share-link-container">
+                <input type="text" id="shareLink" value="https://fundflow.com/ref=share" readonly>
+                <button id="copyLink" class="copy-btn">
+                    <i class="fas fa-copy"></i>
+                    Copy Link
+                </button>
+            </div>
+
+            <div class="share-stats">
+                <div class="stat-item">
+                    <span class="stat-number">1.2K</span>
+                    <span class="stat-label">Total Shares</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4.8★</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="about.js"></script>
+
+    <footer>
+        <div class="codetheworld-io">
+            <a href="https://www.linkedin.com" style="--color: #0072b1">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com" style="--color: #E1306C">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/your-phone-number" style="--color: #25D366">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://www.facebook.com" style="--color: #4267B2">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 FundFlow. All rights reserved.</p>
+    </footer>
+</body>
+</html>
