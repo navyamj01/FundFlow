@@ -1,3 +1,1 @@
-# FundFlow Arcade
 
-## Project Structure
